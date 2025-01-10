@@ -14,29 +14,26 @@
 
   <p>Current visitor count: <span id="visitorCount">Loading...</span></p>
 
-    <script>
-        // Function to fetch visitor count from the Azure Function API
-        async function fetchVisitorCount() {
-            const functionUrl = 'https://sush-clod-resume-function.azurewebsites.net/api/http_trigger1?code=LjpqhCF0Gd-uLcRc_3YpvwyUArqfZ8is43cV2YSsILApAzFuAy-YJA%3D%3D'; // Your Azure Function URL
-            try {
-                const response = await fetch(functionUrl);
-                const data = await response.json();
-                
-                // Assuming the response contains a 'visitorCount' field
-                if (data.visitorCount) {
-                    document.getElementById('visitorCount').innerText = data.visitorCount;
-                } else {
-                    document.getElementById('visitorCount').innerText = "Error fetching count";
-                }
-            } catch (error) {
-                console.error('Error fetching visitor count:', error);
-                document.getElementById('visitorCount').innerText = "Error fetching count";
-            }
+   <script>
+    // Function to fetch visitor count from the Azure Function API
+    async function fetchVisitorCount() {
+        const functionUrl = 'https://sush-clod-resume-function.azurewebsites.net/api/http_trigger1?code=LjpqhCF0Gd-uLcRc_3YpvwyUArqfZ8is43cV2YSsILApAzFuAy-YJA%3D%3D'; // Your Azure Function URL
+        try {
+            const response = await fetch(functionUrl);
+            const data = await response.text(); // Get the response as plain text
+            
+            // Update the visitor count display
+            document.getElementById('visitorCount').innerText = data ? data : "Error fetching count";
+        } catch (error) {
+            console.error('Error fetching visitor count:', error);
+            document.getElementById('visitorCount').innerText = "Error fetching count";
         }
+    }
 
-        // Fetch the visitor count when the page loads
-        window.onload = fetchVisitorCount;
-    </script>
+    // Fetch the visitor count when the page loads
+    window.onload = fetchVisitorCount;
+</script>
+
 
         <p>Azure Data Engineer | Cloud Enthusiast</p>
         <nav>
