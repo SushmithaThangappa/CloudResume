@@ -10,17 +10,19 @@
     <header>
         <h1>Sushmitha Thangappa</h1>
         <h1>Welcome to My Website!</h1>
-    <p>Current visitor count: <span id="visitorCount">Loading...</span></p>
+    
+
+  <p>Current visitor count: <span id="visitorCount">Loading...</span></p>
 
     <script>
         // Function to fetch visitor count from the Azure Function API
         async function fetchVisitorCount() {
-            const functionUrl = 'https://sush-cloud-resume-function.azurewebsites.net/api/http_trigger1?code=LjpqhCF0Gd-uLcRc_3YpvwyUArqfZ8is43cV2YSsILApAzFuAy-YJA%3D%3D';  // Replace with your actual Azure Function URL
+            const functionUrl = 'https://sush-clod-resume-function.azurewebsites.net/api/http_trigger1?code=LjpqhCF0Gd-uLcRc_3YpvwyUArqfZ8is43cV2YSsILApAzFuAy-YJA%3D%3D'; // Your Azure Function URL
             try {
                 const response = await fetch(functionUrl);
                 const data = await response.json();
                 
-                // Assuming the response from Azure Function contains visitor count
+                // Assuming the response contains a 'visitorCount' field
                 if (data.visitorCount) {
                     document.getElementById('visitorCount').innerText = data.visitorCount;
                 } else {
@@ -35,6 +37,7 @@
         // Fetch the visitor count when the page loads
         window.onload = fetchVisitorCount;
     </script>
+
         <p>Azure Data Engineer | Cloud Enthusiast</p>
         <nav>
             <ul>
