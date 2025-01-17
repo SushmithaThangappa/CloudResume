@@ -10,30 +10,6 @@
     <header>
         <h1>Sushmitha Thangappa</h1>
         <h1>Welcome to My Website!</h1>
-    
-
-  <p>Current visitor count: <span id="visitorCount">Loading...</span></p>
-
-   <script>
-    // Function to fetch visitor count from the Azure Function API
-    async function fetchVisitorCount() {
-        const functionUrl = 'https://sush-clod-resume-function.azurewebsites.net/api/http_trigger1?code=LjpqhCF0Gd-uLcRc_3YpvwyUArqfZ8is43cV2YSsILApAzFuAy-YJA%3D%3D'; // Your Azure Function URL
-        try {
-            const response = await fetch(functionUrl);
-            const data = await response.text(); // Get the response as plain text
-            
-            // Update the visitor count display
-            document.getElementById('visitorCount').innerText = data ? data : "Error fetching count";
-        } catch (error) {
-            console.error('Error fetching visitor count:', error);
-            document.getElementById('visitorCount').innerText = "Error fetching count";
-        }
-    }
-
-    // Fetch the visitor count when the page loads
-    window.onload = fetchVisitorCount;
-</script>
-
 
         <p>Azure Data Engineer | Cloud Enthusiast</p>
         <nav>
@@ -78,8 +54,6 @@
         <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
+    
 </body>
 </html>
